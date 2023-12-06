@@ -1,0 +1,52 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    
+    System.out.println("Ejercicio de Palabras de 100 puntos");
+
+    String frase="";
+    int valor=0;
+    while(valor!=100) {
+      frase=PedirFrase();
+      //System.out.println(frase);
+      valor=MedirFrase(frase.toUpperCase());
+      System.out.println(valor);
+    }
+    System.out.println("Acertaste!!!!! "+frase);
+  }
+  
+  private static int MedirFrase(String str) {
+    int i_valor=0, i_c;
+    int i_A=(int)'A';
+    int i_Z=(int)'Z';
+    for(int i=0;i<str.length();i++) {
+      char c=str.charAt(i);
+      i_c=(int)c;
+      
+      if(i_c>=i_A&&i_c<=i_Z) {
+        i_c=(((int)c)-i_A+1);
+      }else {
+        i_c=0;
+      }
+      
+      i_valor+=i_c;
+    }
+    return i_valor;
+  }
+  
+  
+  private static String PedirFrase() {
+    String str="";
+    System.out.println("Dame una palabra: ");
+    Scanner teclado=new Scanner(System.in);
+    str=teclado.nextLine();
+    //str=str.toUpperCase();    
+    
+    return str;
+  }
+
+}
